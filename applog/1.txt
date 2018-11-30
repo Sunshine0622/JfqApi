@@ -1,0 +1,21 @@
+1.第一种情况：例如99好车一样独家代理的广告主我们这边做排重的话，直接在数据库aso_advert表中添加数据，cpid=1,appid=应用appid,app_name
+
+2.如果需要对接应用自己家的排重 需要重新写接口  例如：api.php文件中的俄罗斯方块模式（是点击+回调），服务器上有个ce.php是测试文件
+
+3.如果是渠道分包过来跑，例如闯奇家分包过来需要的是排重+激活上报的话，直接在服务器添加就可以，IdfaRepeat_url  中appid换成要跑的，submit_url也是一样换appid
+
+懒猫家渠道分包过来，根据他给的接口文档添加IdfaRepeat_url  和submit_url
+
+--------------
+服务器：akaifa.com:   101.200.91.203     root Mephistoav123
+---------------
+service mysqld restart 重启mysql服务
+---------------
+数据库：// $db['default']['hostname'] = '101.200.91.203';
+// $db['default']['username'] = 'root';
+// $db['default']['password'] = 'ttttottttomysql';
+--------------
+服务器目录 api.php位置：/www/web/aso/public_html/application/controllers
+-----------------
+
+select count(*) from aso_submit where cpid =406  and appid=981025209 and `timestamp`>'1461313622' and `timestamp`<'1461315340'
